@@ -25,17 +25,7 @@ namespace SimpleCalculator
 
         public int Divide(int First, int Second)
         {
-            if (Second == 0)
-            {
-                Console.WriteLine("Nope, divding by 0 isn't possible.");
-                return 0;
-            }
-
-            else
-            {
-                return First / Second;
-            }
-            
+                return First / Second;    
         }
 
         public int Modulus(int First, int Second)

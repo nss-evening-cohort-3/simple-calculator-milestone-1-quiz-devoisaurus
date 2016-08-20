@@ -36,7 +36,41 @@ namespace SimpleCalculator
                 Console.WriteLine("Invalid input, try something else");
             }
 
-            
+            if (Operator == "+")
+            {
+                Console.WriteLine("Answer: " + Calculator.Add(First, Second));
+            }
+
+            else if (Operator == "-")
+            {
+                Console.WriteLine("Answer: " + Calculator.Subtract(First, Second));
+            }
+
+            else if (Operator == "*")
+            {
+                Console.WriteLine("Answer: " + Calculator.Multiply(First, Second));
+            }
+
+            else if (Operator == "/")
+            {
+                if (Second == 0)
+                {
+                    Console.WriteLine("Division by zero is not an option.");
+                }
+
+                else
+                {
+                    Console.WriteLine("Answer: " + Calculator.Divide(First, Second));
+                }
+                
+            }
+
+            else if (Operator == "%")
+            {
+                Console.WriteLine("Answer: " + Calculator.Modulus(First, Second));
+            }
+
+                        
         }
     }
 }
