@@ -10,8 +10,8 @@ namespace SimpleCalculator
     public class Expression
     {
         string pattern = @"^(?<NumOne>-?\d+)\s?(?<Oprtr>[\+\-\*\/%])\s?(?<NumTwo>-?\d+)";
-        public int First { get; set; }
 
+        public int First;
         public int Second;
         public string Operator = "";
 
