@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
+
 namespace SimpleCalculator.Tests
 {
     [TestClass]
@@ -25,14 +26,14 @@ namespace SimpleCalculator.Tests
         [TestMethod]
         public void CanAddHyphen()
         {
-            TestString.Splitter(TestString);
-            Assert.AreEqual(TestString.One, "-");
+            TestExpression.Splitter(TestString);
+            Assert.AreEqual(TestExpression.One, "-");
         }
 
         [TestMethod]
         public void CanRemoveHyphen()
         {
-            TestString.Splitter(TestString);
+            TestExpression.Splitter(TestString);
             Assert.AreEqual(TestString, "42");
         }
     }

@@ -14,8 +14,10 @@ namespace SimpleCalculator
             String prompt2 = "]>";
             int counter = 0;
 
+            Expression my_exp = new Expression();
+
             Console.Write(prompt1 + counter + prompt2);
-            String UserInput = Console.ReadLine.ToLower();
+            String UserInput = Console.ReadLine().ToLower();
             counter++;
             Console.WriteLine(UserInput);
             my_exp.Splitter(UserInput);
@@ -23,7 +25,7 @@ namespace SimpleCalculator
 
 
             Console.Write(prompt1 + counter + prompt2);
-            Console.Read;
+            Console.Read();
                 
            
 
