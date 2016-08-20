@@ -38,5 +38,16 @@ namespace SimpleCalculator.Tests
 
 
         }
+
+        [TestMethod]
+        public void CanSplitGroups()
+        {
+            string TestString = "3 + 5";
+            TestExpression.Splitter(TestString);
+
+            Assert.AreEqual(TestExpression.First, 3);
+            Assert.AreEqual(TestExpression.Second, 5);
+            Assert.AreEqual(TestExpression.Operator, "+");
+        }
     }
 }
