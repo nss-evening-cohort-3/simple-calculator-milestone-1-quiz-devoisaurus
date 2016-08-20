@@ -17,6 +17,8 @@ namespace SimpleCalculator
             List<string> ExitOptions = new List<string>() { "quit", "exit" };
 
             Expression my_exp = new Expression();
+            Calculator my_calc = new Calculator();
+            
 
             while(Proceed == true)
             {

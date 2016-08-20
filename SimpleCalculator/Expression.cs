@@ -20,6 +20,8 @@ namespace SimpleCalculator
             Regex Regex = new Regex(pattern);
             Match Matches = Regex.Match(UserInput);
 
+            Calculator Calculator = new Calculator();
+
             if (true == Regex.IsMatch(UserInput))
             {
                 First = Convert.ToInt32(Matches.Groups["NumOne"].Value);
