@@ -10,8 +10,8 @@ namespace SimpleCalculator
     public class Expression
     {
         string pattern = @"^(?<NumOne>-?\d+)\s?(?<Oprtr>[\+\-\*\/%])\s?(?<NumTwo>-?\d+)";
-        public int First { get; set; }
 
+        public int First;
         public int Second;
         public string Operator = "";
 
@@ -19,6 +19,8 @@ namespace SimpleCalculator
         {
             Regex Regex = new Regex(pattern);
             Match Matches = Regex.Match(UserInput);
+
+            Calculator Calculator = new Calculator();
 
             if (true == Regex.IsMatch(UserInput))
             {
@@ -34,7 +36,41 @@ namespace SimpleCalculator
                 Console.WriteLine("Invalid input, try something else");
             }
 
-            
+            if (Operator == "+")
+            {
+                Console.WriteLine("Answer: " + Calculator.Add(First, Second));
+            }
+
+            else if (Operator == "-")
+            {
+                Console.WriteLine("Answer: " + Calculator.Subtract(First, Second));
+            }
+
+            else if (Operator == "*")
+            {
+                Console.WriteLine("Answer: " + Calculator.Multiply(First, Second));
+            }
+
+            else if (Operator == "/")
+            {
+                if (Second == 0)
+                {
+                    Console.WriteLine("Division by zero is not an option.");
+                }
+
+                else
+                {
+                    Console.WriteLine("Answer: " + Calculator.Divide(First, Second));
+                }
+                
+            }
+
+            else if (Operator == "%")
+            {
+                Console.WriteLine("Answer: " + Calculator.Modulus(First, Second));
+            }
+
+                        
         }
     }
 }
