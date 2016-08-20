@@ -13,14 +13,27 @@ namespace SimpleCalculator
             String prompt1 = "[";
             String prompt2 = "]>";
             int counter = 0;
+            bool Proceed = true;
+            List<string> ExitOptions = new List<string>() { "quit", "exit" };
 
             Expression my_exp = new Expression();
 
-            Console.Write(prompt1 + counter + prompt2);
-            String UserInput = Console.ReadLine().ToLower();
-            counter++;
-            Console.WriteLine(UserInput);
-            my_exp.Splitter(UserInput);
+            while(Proceed == true)
+            {
+                Console.Write(prompt1 + counter + prompt2);
+                String UserInput = Console.ReadLine().ToLower();
+
+                if(ExitOptions.Contains(UserInput))
+                {
+                    Proceed = false;
+                    Environment.Exit(0);
+                }
+                counter++;
+                my_exp.Splitter(UserInput);
+            }
+
+            Console.Read();
+            
 
 
 

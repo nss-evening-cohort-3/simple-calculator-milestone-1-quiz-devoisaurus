@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace SimpleCalculator
 {
     public class Expression
     {
-        public bool Proceed = true;
-        List<string> ExitOptions = new List<string>() { "quit", "exit" };
-        public string One = "", Two = "", Operator = "";
-        List<char> Oprtrs = new List<char>() { '+', '-', '*', '/', '%' };
+        string pattern = @"^(?<NumOne>-?\d+)\s?(?<Oprtr>[\+\-\*\/%])\s?(?<NumTwo>-?\d+)";
 
         public void Splitter(string UserInput)
         {
-            if (ExitOptions.Contains(UserInput))
-            {
-                Proceed = false;
-                Environment.Exit(0);
-            }
+            Regex Regex = new Regex(pattern);
 
-            if (UserInput.StartsWith("-"))
+            if (true == Regex.IsMatch(UserInput))
             {
-                One = One + "-";
-                UserInput = UserInput.Substring(1);
 
             }
+
+            else
+
+            {
+                Console.WriteLine("Invalid input, try something else");
+            }
+
+            
         }
     }
 }

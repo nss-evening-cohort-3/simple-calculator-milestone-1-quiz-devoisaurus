@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 
 namespace SimpleCalculator.Tests
@@ -9,7 +10,8 @@ namespace SimpleCalculator.Tests
     public class ExpressionTests
     {
         Expression TestExpression = new Expression();
-        string TestString = "-42";
+        static string pattern = @"^(?<NumOne>-?\d+)\s?(?<Oprtr>[\+\-\*\/%])\s?(?<NumTwo>-?\d+)";
+        Regex Regex = new Regex(pattern);
 
         [TestMethod]
         public void CanCreateAnInstance()
@@ -18,23 +20,23 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
-        public void CanCheckForNegative()
+        public void CanCheckInput()
         {
-            Assert.IsTrue(TestString.StartsWith("-"));
-        }
+            string test01 = "1+1";
+            string test02 = "4-3";
+            string test03 = "5*5";
+            string test04 = "4/2";
+            string test05 = "12/3";
+            string test06 = "nope";
 
-        [TestMethod]
-        public void CanAddHyphen()
-        {
-            TestExpression.Splitter(TestString);
-            Assert.AreEqual(TestExpression.One, "-");
-        }
+            Assert.IsTrue(Regex.IsMatch(test01));
+            Assert.IsTrue(Regex.IsMatch(test02));
+            Assert.IsTrue(Regex.IsMatch(test03));
+            Assert.IsTrue(Regex.IsMatch(test04));
+            Assert.IsTrue(Regex.IsMatch(test05));
+            Assert.IsFalse(Regex.IsMatch(test06));
 
-        [TestMethod]
-        public void CanRemoveHyphen()
-        {
-            TestExpression.Splitter(TestString);
-            Assert.AreEqual(TestString, "42");
+
         }
     }
 }
