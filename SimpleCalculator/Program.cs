@@ -26,8 +26,8 @@ namespace SimpleCalculator
 
             Console.Write(prompt1 + counter + prompt2);
             Console.Read();
-                
-           
+
+
 
         }
     }
