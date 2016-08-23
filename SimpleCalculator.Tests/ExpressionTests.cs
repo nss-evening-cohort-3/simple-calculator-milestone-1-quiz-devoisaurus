@@ -10,8 +10,10 @@ namespace SimpleCalculator.Tests
     public class ExpressionTests
     {
         Expression TestExpression = new Expression();
+        Calculator Calculator = new Calculator();
         static string pattern = @"^(?<NumOne>-?\d+)\s?(?<Oprtr>[\+\-\*\/%])\s?(?<NumTwo>-?\d+)";
         Regex Regex = new Regex(pattern);
+
 
         [TestMethod]
         public void CanCreateAnInstance()
