@@ -14,12 +14,5 @@ namespace SimpleCalculator.Tests
             Assert.IsNotNull(TestExits);
         }
 
-        [TestMethod]
-        public void CanItExit()
-        {
-            Assert.IsTrue(TestExits.Exit("quit"));
-            Assert.IsTrue(TestExits.Exit("exit"));
-            Assert.IsFalse(TestExits.Exit("This should fail"));
-        }
     }
 }

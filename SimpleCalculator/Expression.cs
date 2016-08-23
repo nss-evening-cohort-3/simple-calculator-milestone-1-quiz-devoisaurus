@@ -14,7 +14,9 @@ namespace SimpleCalculator
         public int First;
         public int Second;
         public string Operator = "";
+        public int Answer;
         Calculator Calculator = new Calculator();
+        Stack Stack = new Stack();
 
         public void Splitter(string UserInput)
         {
@@ -29,28 +31,35 @@ namespace SimpleCalculator
 
             }
 
-            else
+            else if (false == Regex.IsMatch(UserInput))
 
             {
                 Console.WriteLine("Invalid input, try something else");
                 Operator = null;
             }
         }
-        public void Calc(string Operator)
+        public void Calc(string Operator, string UserInput)
         {
             if (Operator == "+")
             {
-                Console.WriteLine("=: " + Calculator.Add(First, Second));
+                Answer = Calculator.Add(First, Second);
+                Console.WriteLine("=: " + Answer);
+                Stack.LastAns(UserInput, Answer);
+
             }
 
             else if (Operator == "-")
             {
-                Console.WriteLine("=: " + Calculator.Subtract(First, Second));
+                Answer = Calculator.Subtract(First, Second);
+                Console.WriteLine("=: " + Answer);
+                Stack.LastAns(UserInput, Answer);
             }
 
             else if (Operator == "*")
             {
-                Console.WriteLine("=: " + Calculator.Multiply(First, Second));
+                Answer = Calculator.Multiply(First, Second);
+                Console.WriteLine("=: " + Answer);
+                Stack.LastAns(UserInput, Answer);
             }
 
             else if (Operator == "/")
@@ -62,14 +71,18 @@ namespace SimpleCalculator
 
                 else
                 {
-                    Console.WriteLine("=: " + Calculator.Divide(First, Second));
+                    Answer = Calculator.Divide(First, Second);
+                    Console.WriteLine("=: " + Answer);
+                    Stack.LastAns(UserInput, Answer);
                 }
                 
             }
 
             else if (Operator == "%")
             {
-                Console.WriteLine("=: " + Calculator.Modulus(First, Second));
+                Answer = Calculator.Modulus(First, Second);
+                Console.WriteLine("=: " + Answer);
+                Stack.LastAns(UserInput, Answer);
             }
 
             else if (Operator == null)

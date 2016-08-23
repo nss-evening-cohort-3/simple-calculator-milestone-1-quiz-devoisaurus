@@ -11,12 +11,13 @@ namespace SimpleCalculator
     {
         public string LastInput;
         public bool DoTheThing = true;
+        
 
         public void LastEq(string UserInput)
         {
             if (UserInput == "lasteq")
             {
-                Console.WriteLine(LastInput);
+                Console.WriteLine("Your last equation was: " + LastInput);
                 DoTheThing = false;
             }
 
@@ -24,6 +25,12 @@ namespace SimpleCalculator
             {
                 DoTheThing = true;
             }
+        }
+
+        public void LastAns(string UserInput, int Answer)
+        {
+            if (UserInput == "lasta")
+                Console.WriteLine("The last answer was: " + Answer);
         }
     }
 }

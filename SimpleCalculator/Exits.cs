@@ -15,7 +15,7 @@ namespace SimpleCalculator
 
             if (ExitOptions.Contains(UserInput))
             {
-                Console.WriteLine("Have fun stormin' the castle");
+                Console.WriteLine("Have fun stormin' the castle!");
                 Thread.Sleep(1000);
                 Environment.Exit(0);
                 return true;

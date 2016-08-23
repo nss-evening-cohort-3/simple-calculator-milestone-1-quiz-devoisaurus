@@ -20,6 +20,7 @@ namespace SimpleCalculator
             Expression my_exp = new Expression();
             Calculator my_calc = new Calculator();
             Exits Exits = new Exits();
+            Stack Stack = new Stack();
 
 
             Console.WriteLine("Welcome! I am a calculator that can handle simple functions such as: addition, subtraction, multiplication, division, and modulus expressions. Try entering an equation and I'll display the answer! If you'd like to see the last equation entered, type 'lasteq'. If you'd like to repeat the last answer, type 'lasta'.  When you are done, type 'exit' or 'quit' to close the program.");
@@ -30,12 +31,22 @@ namespace SimpleCalculator
                 Console.Write(prompt1 + counter + prompt2);
                 String UserInput = Console.ReadLine().ToLower();
                 Exits.Exit(UserInput);
-                my_exp.Splitter(UserInput);
-                my_exp.Calc(my_exp.Operator);
-                counter++;
-               
-            }
+                Stack.LastEq(UserInput);
 
+                if (Stack.DoTheThing == true)
+                {
+                    Stack.LastAns(UserInput, my_exp.Answer);
+                }
+
+                if (Stack.DoTheThing == true)
+                {
+                    my_exp.Splitter(UserInput);
+                    my_exp.Calc(my_exp.Operator, UserInput);
+                }
+                    counter++;
+                    Stack.LastInput = UserInput;
+                }
+            
             Console.Read();
             
 
